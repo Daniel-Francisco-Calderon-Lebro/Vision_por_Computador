@@ -1,0 +1,43 @@
+import cv2
+from IPython.display import clear_output
+
+# Cargar el clasificador preentrenado para la detección de rostros
+face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
+
+# Iniciar la cámara
+def start_camera():
+    video = cv2.VideoCapture(0)  # Abre la cámara predeterminada
+    return video
+
+# Detener la cámara
+def stop_camera(video):
+    video.release()  # Libera la cámara
+
+# Capturar fotogramas de la cámara y realizar el reconocimiento facial
+try:
+    video = start_camera()
+    while True:
+        ret, frame = video.read()  # Captura un fotograma desde la cámara
+
+        if not ret:
+            break
+
+        # Convertir el fotograma a escala de grises
+        gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+        # Detectar rostros en el fotograma
+        faces = face_cascade.detectMultiScale(gray, scaleFactor=1.1, minNeighbors=5)
+
+        # Dibujar un rectángulo alrededor de cada rostro detectado
+        for (x, y, w, h) in faces:
+            cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)  # Dibuja un rectángulo alrededor del rostro
+            cv2.putText(frame, 'Daniel Calderón', (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2)  # Agrega texto con el nombre
+        
+        # Mostrar el fotograma con el reconocimiento facial superpuesto
+        clear_output(wait=True)
+        cv2.imshow('Reconocimiento Facial', frame)
+        
+        # Esperar 1 milisegundo para permitir que se actualice la ventana
+        cv2.waitKey(1)
+except KeyboardInterrupt:
+    stop_camera(video)
