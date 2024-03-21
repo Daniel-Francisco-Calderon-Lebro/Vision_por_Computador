@@ -22,6 +22,7 @@ try:
         if not ret:
             break
 
+
         # Convertir el fotograma a escala de grises
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
 
