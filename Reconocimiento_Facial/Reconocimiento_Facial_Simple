@@ -32,7 +32,7 @@ try:
         # Dibujar un rectángulo alrededor de cada rostro detectado
         for (x, y, w, h) in faces:
             cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)  # Dibuja un rectángulo alrededor del rostro
-            cv2.putText(frame, 'Daniel Calderón', (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2)  # Agrega texto con el nombre
+            cv2.putText(frame, 'Daniel Calderon', (x, y - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.5, (255, 0, 0), 2)  # Agrega texto con el nombre
         
         # Mostrar el fotograma con el reconocimiento facial superpuesto
         clear_output(wait=True)
