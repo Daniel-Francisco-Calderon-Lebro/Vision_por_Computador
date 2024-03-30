@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="646ba61f-d92d-416f-8d21-01b806b92340" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/Fotos/WIN_20240324_02_38_08_Pro.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Reconocimiento_Facial/basededatos/WIN_20240324_02_38_08_Pro.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fotos/WIN_20240324_02_38_12_Pro.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Reconocimiento_Facial/basededatos/WIN_20240324_02_38_12_Pro.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fotos/WIN_20240324_02_38_13_Pro.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Reconocimiento_Facial/basededatos/WIN_20240324_02_38_13_Pro.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fotos/WIN_20240324_02_38_16_Pro.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Reconocimiento_Facial/basededatos/WIN_20240324_02_38_16_Pro.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fotos/WIN_20240324_02_38_19_Pro.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Reconocimiento_Facial/basededatos/WIN_20240324_02_38_19_Pro.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fotos/WIN_20240324_02_38_23_Pro.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Reconocimiento_Facial/basededatos/WIN_20240324_02_38_23_Pro.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fotos/WIN_20240324_02_38_24_Pro.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Reconocimiento_Facial/basededatos/WIN_20240324_02_38_24_Pro.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fotos/WIN_20240324_02_38_29_Pro.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Reconocimiento_Facial/basededatos/WIN_20240324_02_38_29_Pro.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fotos/WIN_20240324_02_38_32_Pro.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Reconocimiento_Facial/basededatos/WIN_20240324_02_38_32_Pro.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Fotos/WIN_20240324_02_38_34_Pro.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/Reconocimiento_Facial/basededatos/WIN_20240324_02_38_34_Pro.jpg" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Reconocimiento_Facial/Reconocimiento_Facial_Simple" beforeDir="false" afterPath="$PROJECT_DIR$/Reconocimiento_Facial/Reconocimiento_Facial_Simple" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 1
+}]]></component>
+  <component name="ProjectId" id="2e81vYdO8sUsybzdYfJrZbMzVBg" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "main",
+    "last_opened_file_path": "C:/Users/Daniel Calderon/Desktop/2024-1 Poli/Vision por computador",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Daniel Calderon\Desktop\2024-1 Poli\Vision por computador\Reconocimiento_Facial\basededatos" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-python-sdk-09665e90c3a7-b11f5e8da5ad-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-233.15026.15" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="646ba61f-d92d-416f-8d21-01b806b92340" name="Changes" comment="" />
+      <created>1711271622522</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1711271622522</updated>
+      <workItem from="1711271623984" duration="426000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

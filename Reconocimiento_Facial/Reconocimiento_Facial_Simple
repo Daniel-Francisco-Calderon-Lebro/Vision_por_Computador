@@ -12,7 +12,7 @@ def start_camera():
 # Detener la cámara
 def stop_camera(video):
     video.release()  # Libera la cámara
-
+    cv2.destroyAllWindows()  # Cierra todas las ventanas
 # Capturar fotogramas de la cámara y realizar el reconocimiento facial
 try:
     video = start_camera()
@@ -38,6 +38,9 @@ try:
         clear_output(wait=True)
         cv2.imshow('Reconocimiento Facial', frame)
         
+        if cv2.waitKey(1) & 0xFF == ord('q'):
+            break
+
         # Esperar 1 milisegundo para permitir que se actualice la ventana
         cv2.waitKey(1)
 except KeyboardInterrupt:
