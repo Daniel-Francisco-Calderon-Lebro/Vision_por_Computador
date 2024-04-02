@@ -1,6 +1,5 @@
 import cv2
 from IPython.display import clear_output
-import face_recognition
 
 
 # Cargar el clasificador preentrenado para la detección de rostros
