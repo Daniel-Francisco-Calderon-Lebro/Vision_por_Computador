@@ -2,7 +2,7 @@ import face_recognition
 import cv2
 
 # Cargar la imagen de la cara delknown
-known_image = face_recognition.load_image_file("basededatos/WIN_20240324_02_38_16_Pro.jpg")
+known_image = face_recognition.load_image_file("/home/daniel/Documentos/Vision_por_Computador/Reconocimiento_Facial/basededatos/1.jpg")
 known_face_encoding = face_recognition.face_encodings(known_image)[0]
 
 # Abrir la cámara
