@@ -2,6 +2,8 @@ import cv2
 from IPython.display import clear_output
 
 
+
+
 # Cargar el clasificador preentrenado para la detección de rostros
 face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
 
