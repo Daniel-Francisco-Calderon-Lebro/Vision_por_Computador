@@ -1,6 +1,7 @@
 import os
 import face_recognition
 import cv2
+#print(cv2.getBuildInformation())
 
 # # Ruta de la imagen de la persona conocida
 # ruta_imagen_conocida = "Reconocimiento_Facial\\basededatos\\Daniel_Calderon.jpg"
@@ -34,7 +35,7 @@ for filename in os.listdir(ruta_carpeta):
             print(f"No se encontró ningún rostro en {filename}")
 
 # Inicializar la captura de video
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 
 while True:
     ret, frame = cap.read()
@@ -63,8 +64,13 @@ while True:
             color = (0, 0, 255)  # Rojo para desconocidos
             if nombre != "DESCONOCIDO":
                 color = (255, 0, 0)  # Verde para conocidos
-            cv2.rectangle(frame, (left, top), (right, bottom), color, 2)
-            cv2.putText(frame, nombre, (left, bottom + 20), cv2.FONT_HERSHEY_DUPLEX, 0.8, color, 1)
+            cv2.rectangle(frame, (loc[3], loc[2]), (loc[1], loc[2] + 30), color, -1)
+            cv2.rectangle(frame, (loc[3], loc[0]), (loc[1], loc[2]), color, 2)
+            cv2.putText(frame, nombre, (loc[3], loc[2] + 20), 2, 0.7, (255, 255, 255), 1)
+
+            
+            # cv2.rectangle(frame, (left, top), (right, bottom), color, 2)
+            # cv2.putText(frame, nombre, (left, bottom + 20), cv2.FONT_HERSHEY_DUPLEX, 0.8, color, 1)
 
     # Mostrar el fotograma anotado
     cv2.imshow("Fotograma", frame)
