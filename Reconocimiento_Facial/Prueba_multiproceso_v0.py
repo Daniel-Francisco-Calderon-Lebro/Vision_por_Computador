@@ -11,12 +11,12 @@ class reconocimiento():
     codificaciones_rostros_conocidos = []
     nombres_rostros_conocidos = []
     def __init__(self):
-        super().__init__()
         self.frame = []
         self.ubicaciones_rostros = []
+        self.nombre = []
 
-    def run(self):
-        video = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+    def run_camara(self):
+        video = cv2.VideoCapture(1, cv2.CAP_DSHOW)
         while True:
             ret, self.frame = video.read()
             self.frame = cv2.flip(self.frame, 1)
@@ -36,6 +36,35 @@ class reconocimiento():
         """
         self.ubicaciones_rostros = face_recognition.face_locations(self.frame)
         return self.ubicaciones_rostros
+    
+    def codificar_rostro(self):
+        """
+        Esta función se encarga de codificar un rostro en una imagen.
+        """
+        codificaciones_rostro = face_recognition.face_encodings(self.frame, [self.ubicaciones_rostros])[0]
+        return codificaciones_rostro
+    
+    def obtener_coincidencias_rostros(self):
+        """
+        Esta función se encarga de codificar un rostro en una imagen.
+        """
+        coincidencias = face_recognition.compare_faces(self.codificaciones_rostros_conocidos, reconocimiento.codificar_rostro())
+        self.nombre = "DESCONOCIDO"
+        if True in coincidencias:
+                indice_primera_coincidencia = coincidencias.index(True)
+                self.nombre = self.nombres_rostros_conocidos[indice_primera_coincidencia]
+    def dibujar_rectangulo_alrededor_rostro(self):
+        """
+        Esta función se encarga de codificar un rostro en una imagen.
+        """
+        for loc in self.ubicaciones_rostros:
+            color = (0, 0, 255)  # Rojo para desconocidos
+            if self.nombre != "DESCONOCIDO":
+                color = (255, 0, 0)  # Verde para conocidos
+            cv2.rectangle(self.frame, (loc[3], loc[2]), (loc[1], loc[2] + 30), color, -1)
+            cv2.rectangle(self.frame, (loc[3], loc[0]), (loc[1], loc[2]), color, 2)
+            cv2.putText(self.frame, self.nombre, (loc[3], loc[2] + 20), 2, 0.7, (255, 255, 255), 1)
+    
 
     @classmethod
     def capturar_rostros_conocidos_basededatos(cls,ruta_carpeta):
@@ -53,10 +82,14 @@ class reconocimiento():
                     else:
                         print(f"No se encontró ningún rostro en {filename}")
 
-reconocimiento.capturar_rostros_conocidos_basededatos("Reconocimiento_Facial\\basededatos")
-# print(reconocimiento.nombres_rostros_conocidos)
-# print(reconocimiento.codificaciones_rostros_conocidos)
+programa_recocnocimiento=reconocimiento()
+programa_recocnocimiento.capturar_rostros_conocidos_basededatos("Reconocimiento_Facial\\basededatos")
+print("Se han capturado los rostros de la base de datos")
+print(programa_recocnocimiento.nombres_rostros_conocidos)
+print(programa_recocnocimiento.codificaciones_rostros_conocidos)
+programa_recocnocimiento.run_camara()
+programa_recocnocimiento.detectar_ubicacion_rostro()
+programa_recocnocimiento.codificar_rostro()
+programa_recocnocimiento.obtener_coincidencias_rostros()
+programa_recocnocimiento.dibujar_rectangulo_alrededor_rostro()
 
-while True:
-    reconocimiento().run()
-    print("Ubicaciones de los rostros: ",reconocimiento.detectar_ubicacion_rostro())

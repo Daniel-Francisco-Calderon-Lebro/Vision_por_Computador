@@ -1,6 +1,7 @@
 import os
 import face_recognition
 import cv2
+#import threading
 #print(cv2.getBuildInformation())
 
 # # Ruta de la imagen de la persona conocida
@@ -37,12 +38,32 @@ for filename in os.listdir(ruta_carpeta):
 # Inicializar la captura de video
 cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 
+# cap1 = cv2.VideoCapture(1, cv2.CAP_DSHOW)
+
+# def camara_aux(cap):
+#     while True:
+#         ret, frame = cap.read()
+#         if not ret:
+#             print("No se pudo capturar el fotograma")
+#             break
+#         frame = cv2.flip(frame, 1)
+#         cv2.imshow('frame', frame)
+#         if cv2.waitKey(1) & 0xFF == ord('q'):
+#             break
+#     cap.release()
+#     cv2.destroyAllWindows()
+# hilo1 = threading.Thread(target=camara_aux, args=(cap1,))
+# hilo1.daemon = True
+# hilo1.start()
+
+
 while True:
     ret, frame = cap.read()
     if not ret:
         print("No se pudo capturar el fotograma")
         break
     frame = cv2.flip(frame, 1)
+    
     
     # Detectar rostros en el fotograma
     ubicaciones_rostros = face_recognition.face_locations(frame, model="hog")
