@@ -1,0 +1,38 @@
+import multiprocessing
+import time
+
+def Evaluacion(Lista, queue):
+    res=[]
+    for i in Lista:
+        time.sleep(1)
+        if i == "Azul":
+            res.append(1)
+        else:
+            res.append(0)
+    queue.put(res)
+
+if __name__ == "__main__":
+    queue1 = multiprocessing.Queue()
+    queue2 = multiprocessing.Queue()
+    lista1 = ["Azul", "Azul", "Azul", "Azul"]
+    lista2 = ["Azul", "Azul", "Azul", "Azul"]
+
+    proceso1 = multiprocessing.Process(target=Evaluacion, kwargs={"Lista": lista1, "queue": queue1}, daemon=True)
+    proceso2 = multiprocessing.Process(target=Evaluacion, kwargs={"Lista": lista2, "queue": queue2}, daemon=True)
+
+    proceso1.start()
+    proceso2.start()
+
+    proceso1.join()
+    proceso2.join()
+    #time.sleep(2)
+    res1 = queue1.get_nowait()
+    res2 = queue2.get_nowait()
+
+    print(res1)
+    print(res2)
+
+    if all(res1) and all(res2):
+        print("Todos azules")
+    else:
+        print("No todos azules")
