@@ -13,6 +13,7 @@ for filename in os.listdir(ruta_carpeta):
     if filename.endswith(".jpg") or filename.endswith(".png"):
         ruta_imagen = os.path.join(ruta_carpeta, filename)
         imagen = face_recognition.load_image_file(ruta_imagen)
+        #imagen = cv2.cvtColor(imagen, cv2.COLOR_BGR2GRAY)
         codificaciones_rostro = face_recognition.face_encodings(imagen, model="hog")
         
         # Verificar si se detecta un rostro en la imagen
@@ -24,15 +25,18 @@ for filename in os.listdir(ruta_carpeta):
             print(f"No se encontró ningún rostro en {filename}")
 
 # Inicializar la captura de video
-cap = cv2.VideoCapture(1, cv2.CAP_DSHOW)
-
+cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+scale_factor = 0.5
 while True:
     ret, frame = cap.read()
     if not ret:
         print("No se pudo capturar el fotograma")
         break
+    #colocar el frame en scala de grises
+    #frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
     frame = cv2.flip(frame, 1)
-    frame=cv2.resize(frame, (0, 0), fx=0.5, fy=0.5)
+    frame = cv2.resize(frame, (0, 0), fx=scale_factor, fy=scale_factor)
+    
     #print(frame.shape)#480x640 en 1 y 2 camaras
     #frame = cv2.resize(frame, (480, 640))
     #print(frame.shape)
@@ -59,14 +63,14 @@ while True:
                 color = (255, 0, 0)  # Verde para conocidos
             cv2.rectangle(frame, (loc[3], loc[2]), (loc[1], loc[2] + 30), color, -1)
             cv2.rectangle(frame, (loc[3], loc[0]), (loc[1], loc[2]), color, 2)
-            cv2.putText(frame, nombre, (loc[3], loc[2] + 20), 2, 0.7, (255, 255, 255), 1)
+            cv2.putText(frame, nombre, (loc[3], loc[2] + 20), 2, 0.35, (0, 255, 0), 1)
 
     # Mostrar el fotograma anotado en una ventana que se pueda ampliar
     cv2.namedWindow("Fotograma", cv2.WINDOW_NORMAL)
     cv2.imshow("Fotograma", frame)
     
     # Verificar si se presiona la tecla de salida
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    if cv2.waitKey(30) & 0xFF == ord('q'):
         print("Salir")
         break
 
