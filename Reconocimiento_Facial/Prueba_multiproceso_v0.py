@@ -16,7 +16,7 @@ class reconocimiento():
         self.nombre = []
 
     def run_camara(self):
-        video = cv2.VideoCapture(1, cv2.CAP_DSHOW)
+        video = cv2.VideoCapture(0, cv2.CAP_DSHOW)
         while True:
             ret, self.frame = video.read()
             self.frame = cv2.flip(self.frame, 1)

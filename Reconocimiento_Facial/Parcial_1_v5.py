@@ -67,7 +67,7 @@ codificaciones_rostros_conocidos = [face_recognition.face_encodings(imagen)[0] f
 nombres_rostros_conocidos = [os.path.splitext(filename)[0] for filename in os.listdir(ruta_carpeta) if filename.endswith(".jpg") or filename.endswith(".png")]
 
 # Inicializar la captura de video
-cap = cv2.VideoCapture(1, cv2.CAP_DSHOW)
+cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 
 # Crear y ejecutar un hilo para procesar los cuadros
 hilo_procesamiento = threading.Thread(target=procesar_cuadros, args=(cap, codificaciones_rostros_conocidos, nombres_rostros_conocidos))

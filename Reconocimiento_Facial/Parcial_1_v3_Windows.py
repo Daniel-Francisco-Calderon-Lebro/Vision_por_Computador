@@ -1,9 +1,11 @@
 import os
 import face_recognition
 import cv2
+# # import dlib
+# import torch
 # import dlib
-
-# # Configurar dlib para usar la GPU
+# device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+# # # Configurar dlib para usar la GPU
 # dlib.DLIB_USE_CUDA = True
 ruta_carpeta = "Reconocimiento_Facial\\basededatos"
 codificaciones_rostros_conocidos = []
@@ -37,9 +39,9 @@ while True:
     frame = cv2.flip(frame, 1)
     frame = cv2.resize(frame, (0, 0), fx=scale_factor, fy=scale_factor)
     
-    #print(frame.shape)#480x640 en 1 y 2 camaras
-    #frame = cv2.resize(frame, (480, 640))
-    #print(frame.shape)
+    # print(frame.shape)#480x640 en 1 y 2 camaras
+    # frame = cv2.resize(frame, (480, 640))
+    # print(frame.shape)
     
     # Detectar rostros en el fotograma
     ubicaciones_rostros = face_recognition.face_locations(frame, model="hog", number_of_times_to_upsample=2)
