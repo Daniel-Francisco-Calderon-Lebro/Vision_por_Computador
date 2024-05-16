@@ -15,36 +15,39 @@ for filename in os.listdir(ruta_carpeta):
     if filename.endswith(".jpg") or filename.endswith(".png"):
         ruta_imagen = os.path.join(ruta_carpeta, filename)
         imagen = face_recognition.load_image_file(ruta_imagen)
-        #imagen = cv2.cvtColor(imagen, cv2.COLOR_BGR2GRAY)
-        codificaciones_rostro = face_recognition.face_encodings(imagen, model="hog")
+        #coloco el tamaño de todas las imagenes de la base de datos a 160x160
+        imagen = cv2.resize(imagen, (720, 640))
+        print(imagen.shape)
+        codificaciones_rostro = face_recognition.face_encodings(imagen, model="hog")#deteccion de rostro de la base de datos por Histograma de gradientes (hog)
         
         # Verificar si se detecta un rostro en la imagen
         if len(codificaciones_rostro) > 0:
             codificacion_rostro = codificaciones_rostro[0]
-            codificaciones_rostros_conocidos.append(codificacion_rostro)
-            nombres_rostros_conocidos.append(os.path.splitext(filename)[0])
+            codificaciones_rostros_conocidos.append(codificacion_rostro) #rostros de la base de datos codificados vectores de caracteristicas
+            nombres_rostros_conocidos.append(os.path.splitext(filename)[0]) # nombres de los archivos de la base de datos
         else:
             print(f"No se encontró ningún rostro en {filename}")
 
 # Inicializar la captura de video
-cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
-scale_factor = 0.5
+cap = cv2.VideoCapture(1, cv2.CAP_DSHOW)
+cap1 = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+
 while True:
-    ret, frame = cap.read()
+    ret, frame1 = cap.read()
+    ret, frame2 = cap1.read()
     if not ret:
         print("No se pudo capturar el fotograma")
         break
-    #colocar el frame en scala de grises
-    #frame = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    frame = cv2.flip(frame, 1)
-    frame = cv2.resize(frame, (0, 0), fx=scale_factor, fy=scale_factor)
+    #combinar unir fotogramas
     
-    # print(frame.shape)#480x640 en 1 y 2 camaras
-    # frame = cv2.resize(frame, (480, 640))
-    # print(frame.shape)
+    frame1 = cv2.flip(frame1, 1)
+    frame1 = cv2.resize(frame1, (320, 320))
+    frame2 = cv2.flip(frame2, 1)
+    frame2 = cv2.resize(frame2, (320, 320))
+    frame = cv2.hconcat([frame1, frame2])
     
     # Detectar rostros en el fotograma
-    ubicaciones_rostros = face_recognition.face_locations(frame, model="hog", number_of_times_to_upsample=2)
+    ubicaciones_rostros = face_recognition.face_locations(frame, model="hog")
     
     if ubicaciones_rostros:
         for loc in ubicaciones_rostros:

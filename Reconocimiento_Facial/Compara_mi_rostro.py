@@ -2,12 +2,12 @@ import face_recognition
 import cv2
 import os
 
-image = cv2.imread("/home/daniel/Documentos/Vision_por_Computador/Reconocimiento_Facial/basededatos/Daniel_Calderon.jpg")
+image = cv2.imread("Reconocimiento_Facial\\basededatos\\Daniel_Calderon.jpg")
 
 
 ######################################Leer imagenes#############################################
 # Ruta al directorio que contiene las imágenes
-directorio = '/home/daniel/Documentos/Vision_por_Computador/Reconocimiento_Facial/basededatos'
+directorio = 'Reconocimiento_Facial\\basededatos\\'
 
 # Vector para almacenar los nombres de las imágenes
 nombres_imagenes = []
@@ -44,7 +44,7 @@ cv2.imshow("image", image)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
 """
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 
 while True:
     ret, frame = cap.read()
