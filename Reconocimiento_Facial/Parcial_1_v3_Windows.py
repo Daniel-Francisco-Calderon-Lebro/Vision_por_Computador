@@ -34,8 +34,8 @@ cap1 = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 
 while True:
     ret, frame1 = cap.read()
-    ret, frame2 = cap1.read()
-    if not ret:
+    ret1, frame2 = cap1.read()
+    if not ret or not ret1:
         print("No se pudo capturar el fotograma")
         break
     #combinar unir fotogramas
