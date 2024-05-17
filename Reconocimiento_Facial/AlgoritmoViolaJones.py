@@ -48,7 +48,7 @@ for i in range(0, imagen_gray.shape[0], ventana.shape[0]):
         cv2.namedWindow("imagen_gray", cv2.WINDOW_NORMAL)
         cv2.imshow("imagen_gray", imagen_gray)
         # Delay for 10 milliseconds
-        cv2.waitKey(10)
+        cv2.waitKey(100)
 
 # Esperar a que el usuario presione una tecla y luego cerrar las ventanas
 cv2.waitKey(0)
