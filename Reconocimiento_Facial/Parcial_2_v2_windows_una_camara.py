@@ -34,7 +34,7 @@ frame_size = (frame_width, frame_height)
 # Definir el codec y crear el objeto VideoWriter
 output_filename = 'output_video.avi'
 codec = 'XVID'
-fps = 3
+fps = 30  # Puedes ajustar este valor según el FPS del video de entrada
 fourcc = cv2.VideoWriter_fourcc(*codec)
 out = cv2.VideoWriter(output_filename, fourcc, fps, frame_size)
 

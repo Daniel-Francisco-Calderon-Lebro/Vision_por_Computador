@@ -68,7 +68,7 @@ while cap.isOpened():
                 color = (255, 0, 0)  # Azul para conocidos
             cv2.rectangle(frame, (left, top), (right, bottom), color, 2)
             cv2.rectangle(frame, (left, bottom), (right, bottom + 30), color, -1)
-            cv2.putText(frame, nombre, (left + 6, bottom + 20), cv2.FONT_HERSHEY_DUPLEX, 0.5, (255, 255, 255), 1)
+            cv2.putText(frame, nombre, (left + 6, bottom + 20), cv2.FONT_HERSHEY_DUPLEX, 0.7, (255, 255, 255), 2)
 
     # Escribir el frame procesado en el archivo de video de salida
     out.write(frame)

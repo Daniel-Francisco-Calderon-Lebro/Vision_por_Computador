@@ -62,7 +62,7 @@ while True:
                 color = (255, 0, 0)  # Verde para conocidos
             cv2.rectangle(frame, (loc[3], loc[2]), (loc[1], loc[2] + 30), color, -1)
             cv2.rectangle(frame, (loc[3], loc[0]), (loc[1], loc[2]), color, 2)
-            cv2.putText(frame, nombre, (loc[3], loc[2] + 20), 2, 0.35, (0, 255, 0), 1)
+            cv2.putText(frame, nombre, (loc[3], loc[2] + 20), 2, 0.8, (0, 255, 0), 1)
 
     # Mostrar el fotograma anotado en una ventana que se pueda ampliar
     cv2.namedWindow("Fotograma", cv2.WINDOW_NORMAL)

@@ -28,7 +28,7 @@ for filename in os.listdir(ruta_carpeta):
     if filename.endswith(".jpg") or filename.endswith(".png"):
         ruta_imagen = os.path.join(ruta_carpeta, filename)
         imagen = face_recognition.load_image_file(ruta_imagen)
-        codificaciones_rostro = face_recognition.face_encodings(imagen, model="cnn")
+        codificaciones_rostro = face_recognition.face_encodings(imagen, model="hog")
         
         # Verificar si se detecta un rostro en la imagen
         if codificaciones_rostro:
@@ -43,7 +43,8 @@ while cap.isOpened():
     if not ret:
         print("No se pudo capturar el fotograma")
         break
-
+    
+    frame = cv2.GaussianBlur(frame, (5, 5), 0)
     # Detectar rostros en el fotograma
     ubicaciones_rostros = face_recognition.face_locations(frame, model="hog")
     
@@ -66,7 +67,7 @@ while cap.isOpened():
                 color = (255, 0, 0)  # Azul para conocidos
             cv2.rectangle(frame, (left, top), (right, bottom), color, 2)
             cv2.rectangle(frame, (left, bottom), (right, bottom + 30), color, -1)
-            cv2.putText(frame, nombre, (left + 6, bottom + 20), cv2.FONT_HERSHEY_DUPLEX, 0.5, (255, 255, 255), 1)
+            cv2.putText(frame, nombre, (left + 6, bottom + 20), cv2.FONT_HERSHEY_DUPLEX, 0.7, (255, 255, 255), 2)
 
     # Escribir el frame procesado en el archivo de video de salida
     out.write(frame)
